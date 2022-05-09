@@ -1,0 +1,35 @@
+type Query {
+    account: [Account]
+    todo: [Todo]
+}
+
+type Mutation {
+    addAccount(accountInput: AccountInput): Account
+    updateAccountName(accountInput: AccountInput): Account
+    deleteAccount(accountInput: AccountInput): Account
+    addTodo(todoInput: TodoInput): Todo
+    updateTodo(todoInput: TodoInput): Todo
+    deleteTodo(todoInput: TodoInput): Todo
+}
+
+input AccountInput {
+    name: String
+    account_id: ID
+}
+
+input TodoInput {
+    description: String
+    todo_id: ID
+    account_id: ID
+}
+
+type Account {
+    name: String
+    account_id: ID
+}
+
+type Todo {
+    todo_id: ID
+    account_id: ID
+    description: String
+}
